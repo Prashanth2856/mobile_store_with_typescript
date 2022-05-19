@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface SingleProduct {
   id: number;
@@ -11,6 +11,7 @@ export interface SingleProduct {
 
 export interface ProductsState {
   products: SingleProduct[];
+  cart: SingleProduct[];
 }
 
 const initialState: ProductsState = {
@@ -80,12 +81,25 @@ const initialState: ProductsState = {
       price: 58999,
     },
   ],
+  cart: [],
 };
 
 export const productSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {},
+  reducers: {
+    addToCart: (state, action: PayloadAction<SingleProduct>) => {
+      state.cart.push(action.payload);
+    },
+    // sortLowToHigh: (state, action: PayloadAction<ProductsState>) => {
+    //   state.products.sort((a, b) => {
+    //     return a.price - b.price;
+    //   });
+    // },
+  },
 });
+
+export const { addToCart } = productSlice.actions;
+// export const { sortLowToHigh } = productSlice.actions;
 
 export default productSlice.reducer;

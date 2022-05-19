@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../features/cartSlice";
+import { addToCart } from "../../features/productSlice";
 import { SingleProduct } from "../../features/productSlice";
 import { RootState } from "../../redux/store";
 import { Carousell } from "../HomePage/Carousel/Carousel";
@@ -21,6 +21,7 @@ const Products: React.FC = () => {
 
   const handleAddToCart = (e: SingleProduct) => {
     dispatch(addToCart(e));
+    alert("Product added to cart successfully!");
   };
 
   return (

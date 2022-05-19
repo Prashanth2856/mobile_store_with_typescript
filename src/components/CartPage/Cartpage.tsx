@@ -4,7 +4,7 @@ import { RootState } from "../../redux/store";
 import styles from "./CartPage.module.css";
 
 export const Cartpage = () => {
-  const cartData = useSelector((state: RootState) => state.cartReducer.cart);
+  const cartData = useSelector((state: RootState) => state.productReducer.cart);
 
   // const cartCount=cartData.length;
 
