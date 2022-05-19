@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export interface SingleProduct {
   id: number;
@@ -11,7 +11,6 @@ export interface SingleProduct {
 
 export interface ProductsState {
   products: SingleProduct[];
-  cart: SingleProduct[];
 }
 
 const initialState: ProductsState = {
@@ -81,36 +80,12 @@ const initialState: ProductsState = {
       price: 58999,
     },
   ],
-  cart: [
-    {
-      id: 1,
-      model: "OnePlus 9RT 5G",
-      discount: 10,
-      variant: "Nano silver 8 GB RAM + 128 GB ROM",
-      image: "https://i.ibb.co/nssRM8n/9rt.png",
-      price: 42999,
-    },
-    {
-      id: 2,
-      model: "OnePlus Nord 2 5G",
-      discount: 12,
-      variant: "Gray Sierra 8 GB RAM + 128 GB ROM",
-      image: "https://i.ibb.co/zf9DcdV/nord2.png",
-      price: 29999,
-    },
-  ],
 };
 
 export const productSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {
-    addTocart: (state, action: PayloadAction<SingleProduct>) => {
-      state.cart.push(action.payload);
-    },
-  },
+  reducers: {},
 });
-
-export const { addTocart } = productSlice.actions;
 
 export default productSlice.reducer;

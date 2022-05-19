@@ -1,5 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../features/cartSlice";
+import { SingleProduct } from "../../features/productSlice";
 import { RootState } from "../../redux/store";
 import { Carousell } from "../HomePage/Carousel/Carousel";
 import styles from "./Products.module.css";
@@ -8,11 +10,17 @@ const Products: React.FC = () => {
   const allProducts = useSelector(
     (state: RootState) => state.productReducer.products
   );
-  console.log(allProducts);
+  // console.log(allProducts);
+
+  const dispatch = useDispatch();
 
   const handleSort: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
     let value = e.target.value;
     console.log(value);
+  };
+
+  const handleAddToCart = (e: SingleProduct) => {
+    dispatch(addToCart(e));
   };
 
   return (
@@ -48,7 +56,7 @@ const Products: React.FC = () => {
                 {e.discount}% off
               </p>
               <h6>₹ {e.price}</h6>
-              <button>Add to Cart</button>
+              <button onClick={() => handleAddToCart(e)}>Add to Cart</button>
             </div>
           ))}
         </div>
