@@ -81,7 +81,9 @@ const initialState: ProductsState = {
       price: 58999,
     },
   ],
-  cart: [],
+  cart: localStorage.getItem("cartItems")
+    ? JSON.parse(localStorage.getItem("cartItems") || "{}")
+    : [],
 };
 
 export const productSlice = createSlice({
@@ -90,16 +92,26 @@ export const productSlice = createSlice({
   reducers: {
     addToCart: (state, action: PayloadAction<SingleProduct>) => {
       state.cart.push(action.payload);
+
+      localStorage.setItem("cartItems", JSON.stringify(state.cart));
     },
-    // sortLowToHigh: (state, action: PayloadAction<ProductsState>) => {
-    //   state.products.sort((a, b) => {
-    //     return a.price - b.price;
-    //   });
-    // },
+
+    removeProductFromCart: (state, action: PayloadAction<SingleProduct>) => {
+      const availableCartProducts = state.cart.filter(
+        (item) => item.id !== action.payload.id
+      );
+      state.cart = availableCartProducts;
+      localStorage.setItem("cartItems", JSON.stringify(state.cart));
+    },
+
+    clearCart: (state, action: PayloadAction<ProductsState>) => {
+      state.cart = [];
+      localStorage.setItem("cartItems", JSON.stringify(state.cart));
+    },
   },
 });
 
-export const { addToCart } = productSlice.actions;
+export const { addToCart, removeProductFromCart,clearCart } = productSlice.actions;
 // export const { sortLowToHigh } = productSlice.actions;
 
 export default productSlice.reducer;

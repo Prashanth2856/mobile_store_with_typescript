@@ -1,15 +1,37 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import {
+  clearCart,
+  removeProductFromCart,
+  SingleProduct,
+} from "../../features/productSlice";
 import { RootState } from "../../redux/store";
 import styles from "./CartPage.module.css";
 
 export const Cartpage = () => {
   const cartData = useSelector((state: RootState) => state.productReducer.cart);
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   // const cartCount=cartData.length;
+
+  const handleRemoveProduct = (e: SingleProduct) => {
+    dispatch(removeProductFromCart(e));
+  };
+
+  const handleClearCart = () => {
+    // dispatch(clearCart());
+  };
 
   return (
     <div className={styles.cartPageContainer}>
+      <button className={styles.clearCart} onClick={()=>handleClearCart()}>
+        Clear Cart
+      </button>
+      <p className={styles.shopMore} onClick={() => navigate("/products")}>
+        Shop More-{">>"}
+      </p>
       {cartData?.map((e, id) => (
         <div key={e.id} className={styles.productdiv}>
           <img src={e.image} alt="" />
@@ -18,7 +40,7 @@ export const Cartpage = () => {
             <p>{e.variant}</p>
             <h6>₹ {e.price}</h6>
           </div>
-          <button>Remove</button>
+          <button onClick={() => handleRemoveProduct(e)}>Remove</button>
         </div>
       ))}
     </div>
