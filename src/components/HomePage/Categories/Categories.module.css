@@ -1,0 +1,29 @@
+.categoryContainer {
+    width: 70%;
+    margin: auto;
+    margin-top: 3%;
+    padding: 15px;
+}
+.categoryContainer h1 {
+    text-align: start;
+}
+.categories {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3%;
+}
+.categories div {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+.categories div img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+.categories div:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: all 0.5s;
+}

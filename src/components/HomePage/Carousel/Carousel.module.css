@@ -1,0 +1,6 @@
+.carouselContainer img{
+    height:400px;
+}
+.carouselContainer{
+    border-bottom: 2px solid rgb(204, 204, 204);
+}

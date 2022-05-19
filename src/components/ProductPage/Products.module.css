@@ -1,0 +1,56 @@
+.productsContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 24.2%);
+    grid-gap: 1%;
+    margin: auto;
+    margin-top: 4%;
+    padding: 5px;
+    clear: both;
+}
+.productDiv {
+    text-align: start;
+    line-height: 1;
+    padding: 5px;
+    margin-top: 8%;
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 5px;
+}
+.productDiv button {
+    margin: auto;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background-color: #ec6737;
+    color: white;
+    font-weight: 500;
+    border: none;
+    display: none;
+}
+.productDiv:hover button {
+    display: block;
+}
+
+.productDiv p {
+    font-size: 0.9rem;
+    margin-left: 8%;
+}
+.productDiv h5,
+.productDiv h6 {
+    margin-left: 8%;
+}
+.productDiv img {
+    height: 302px;
+    width: 245px;
+    margin-left: 6%;
+    margin-bottom: 2%;
+}
+.selectTag {
+    float: right;
+    margin: 2.5% 2.5%;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+select {
+    background-color: rgb(219, 219, 219);
+    border-radius: 3px;
+    height: 30px;
+}

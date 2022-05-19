@@ -1,0 +1,41 @@
+.cartPageContainer{
+    /* margin-left:20% ; */
+    width: 50%;
+    margin: 5%;
+}
+
+.productdiv {
+    border: 1px solid rgb(201, 196, 196);
+    margin: 15px;
+    width: 100%;
+    clear: left;
+    float: left;
+    padding: 10px;
+    border-radius:10px;
+}
+.productdiv img {
+    width: 140px;
+    height: 160px;
+    float: left;
+    margin-right: 40px;
+}
+
+.productdiv div {
+    text-align: start;
+    line-height: 0.5;
+    margin-top: 50px;
+    clear: right;
+}
+.productdiv button {
+    float: right;
+    /* background-color: #ec6737; */
+    transition: all 0.5s;
+    font-weight: 600;
+    border-radius:3px ;
+    /* color: white; */
+}
+.productdiv button:hover{
+    cursor: pointer;
+    background-color: #ec6737;
+    color: white;
+}
