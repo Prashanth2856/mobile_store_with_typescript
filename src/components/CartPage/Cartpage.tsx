@@ -1,16 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {
-  clearCart,
-  removeProductFromCart,
-  SingleProduct,
-} from "../../features/productSlice";
+import { SingleProduct } from "../../features/productSlice";
+import { clearCart, removeProductFromCart } from "../../features/cartSlice";
 import { RootState } from "../../redux/store";
 import styles from "./CartPage.module.css";
 
 export const Cartpage = () => {
-  const cartData = useSelector((state: RootState) => state.productReducer.cart);
+  const cartData = useSelector((state: RootState) => state.cartReducer.cart);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -26,7 +23,7 @@ export const Cartpage = () => {
 
   return (
     <div className={styles.cartPageContainer}>
-      <button className={styles.clearCart} onClick={()=>handleClearCart()}>
+      <button className={styles.clearCart} onClick={() => handleClearCart()}>
         Clear Cart
       </button>
       <p className={styles.shopMore} onClick={() => navigate("/products")}>
