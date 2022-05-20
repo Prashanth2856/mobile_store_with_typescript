@@ -4,7 +4,7 @@ import { addToCart } from "../../features/cartSlice";
 import { RootState } from "../../redux/store";
 import { Carousell } from "../HomePage/Carousel/Carousel";
 import styles from "./Products.module.css";
-import {SingleProduct} from "../../features/productSlice"
+import { SingleProduct } from "../../features/productSlice";
 
 const Products: React.FC = () => {
   const allProducts = useSelector(
