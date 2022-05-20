@@ -21,7 +21,7 @@ export const Cartpage = () => {
   };
 
   const handleClearCart = () => {
-    // dispatch(clearCart());
+    dispatch(clearCart());
   };
 
   return (
